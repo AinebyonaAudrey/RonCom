@@ -34,38 +34,12 @@
         
         <!-- Custom styles -->
         <style>
-            .card-title {
-                font-style: italic;
-                margin-bottom: 1.2rem;
-                color: #fff;
-            }
-            .card-text {
-                font-family: 'Segoe UI', Arial, sans-serif;
-                line-height: 1.6;
-                color: #e6e6e6;
-            }
-            .card {
-                transition: transform 0.3s ease;
+            .service-card {
                 opacity: 0;
                 transform: translateY(30px);
             }
-            .card.fade-in {
+            .service-card.fade-in {
                 animation: fadeInUp 0.6s ease forwards;
-            }
-            .card:hover {
-                transform: translateY(-5px);
-            }
-            .systems-card .card-body {
-                background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            }
-            .graphics-card .card-body {
-                background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
-            }
-            .it-support-card .card-body {
-                background: linear-gradient(135deg, #0b4f6c 0%, #01baef 100%);
-            }
-            .web-card .card-body {
-                background: linear-gradient(135deg, #0f3443 0%, #34e89e 100%);
             }
             @keyframes fadeInUp {
                 from {
@@ -100,8 +74,10 @@
                     </div>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.html#products">Products</a></li>
                         <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -119,70 +95,76 @@
             </div>
             
             <!-- Content Row-->
-            <div class="row gx-4 gx-lg-5">
-
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100 systems-card">
-                        <div class="card-body">
-                            <h2 class="card-title text-center">Systems Installations</h2>
-                            <p class="card-text">
-                                Professional installation of network infrastructure, servers, and workstations. We ensure your systems are set up correctly and optimized for peak performance, following industry best practices and security standards.
-                            </p>
+            <div class="row gx-4 gx-lg-5 service-cards">
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/installations.jpg" alt="Systems Installation - Professional network infrastructure setup" loading="lazy" decoding="async">
                         </div>
-                    </div>                    
-                </div>
-
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100 graphics-card">
-                        <div class="card-body">
-                            <h2 class="card-title text-center">Marketing and Branding</h2>
-                            <p class="card-text">
-                                Comprehensive marketing and branding solutions to help your business stand out. From logo design and brand identity to digital marketing strategies and promotional materials, we help build and strengthen your market presence.
-                            </p>
-                        </div>
-                    </div>                    
-                </div>
-
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100 web-card">
-                        <div class="card-body">
-                            <h2 class="card-title text-center">Software Development</h2>
-                            <p class="card-text">
-                                Custom software solutions designed to meet your specific business needs. From web applications to mobile apps and enterprise software, we deliver scalable and efficient solutions using modern technologies.
-                            </p>
+                        <div class="service-content">
+                            <h3 class="service-title">Systems Installations</h3>
+                            <p class="service-text">Professional installation of network infrastructure, servers, and workstations. Optimized for peak performance with industry best practices.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100 it-support-card">
-                        <div class="card-body">
-                            <h2 class="card-title text-center">IT Specialists</h2>
-                            <p class="card-text">
-                                Expert IT consultation and support services. Our team of specialists provides comprehensive technical assistance, system maintenance, and strategic IT planning to keep your business running smoothly.
-                            </p>
+                <div class="col-lg-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/graphics.jpg" alt="Marketing and Branding - Professional design services" loading="lazy" decoding="async">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Marketing and Branding</h3>
+                            <p class="service-text">Comprehensive marketing solutions including logo design, brand identity, and digital marketing strategies.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100 systems-card">
-                        <div class="card-body">
-                            <h2 class="card-title text-center">Camera and Hotspot Installations</h2>
-                            <p class="card-text">
-                                Professional installation of CCTV systems and wireless hotspots. We provide end-to-end solutions for surveillance and internet connectivity needs, ensuring optimal coverage and performance.
-                            </p>
+                <div class="col-lg-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/web1.png" alt="Software Development - Custom solutions" loading="lazy" decoding="async">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Software Development</h3>
+                            <p class="service-text">Custom software solutions for web applications, mobile apps, and enterprise software needs.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100 it-support-card">
-                        <div class="card-body">
-                            <h2 class="card-title text-center">IT Remarketing</h2>
-                            <p class="card-text">
-                                Professional IT equipment remarketing services. We help businesses buy and sell pre-owned IT equipment, ensuring all hardware is thoroughly tested and certified for reliable performance.
-                            </p>
+                <div class="col-lg-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/IT.png" alt="IT Specialists - Expert technical support" loading="lazy" decoding="async">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">IT Specialists</h3>
+                            <p class="service-text">Expert IT consultation and support services for comprehensive technical assistance and maintenance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/images/cctv-camera.jpg" alt="Camera and Hotspot Installations - Security solutions" loading="lazy" decoding="async">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Camera and Hotspot Installations</h3>
+                            <p class="service-text">Professional CCTV and wireless hotspot installation with optimal coverage and performance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/IT2.jpeg" alt="IT Remarketing - Professional equipment services" loading="lazy" decoding="async">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">IT Remarketing</h3>
+                            <p class="service-text">Professional IT equipment remarketing with thorough testing and certification for reliable performance.</p>
                         </div>
                     </div>
                 </div>
@@ -221,7 +203,7 @@
         <!-- Scroll Animation Script -->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                const cards = document.querySelectorAll('.card');
+                const cards = document.querySelectorAll('.service-card');
                 
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {

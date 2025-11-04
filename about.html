@@ -25,24 +25,70 @@
         <link href="css/styles.css" rel="stylesheet" />
         
         <style>
+            body {
+                background-color: #f8f9fa;
+            }
             .about-section {
-                padding: 50px 0;
+                padding: 80px 0;
+            }
+            .about-section h1 {
+                color: #333;
+                margin-bottom: 2rem;
+                position: relative;
+            }
+            .about-section h1:after {
+                content: '';
+                display: block;
+                width: 60px;
+                height: 4px;
+                background: #0d6efd;
+                margin-top: 15px;
             }
             .about-image {
                 max-width: 100%;
                 height: auto;
-                border-radius: 8px;
-                margin-bottom: 20px;
+                border-radius: 12px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
             }
-            .team-member {
-                margin-bottom: 30px;
-                text-align: center;
+            .about-image:hover {
+                transform: scale(1.02);
             }
-            .team-member img {
-                width: 200px;
-                height: 200px;
-                border-radius: 50%;
-                margin-bottom: 15px;
+            .about-text {
+                padding: 2rem;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                margin-bottom: 2rem;
+            }
+            .mission-section {
+                background: linear-gradient(135deg, #0d6efd 0%, #0099ff 100%);
+                color: white;
+                padding: 4rem 0;
+                margin: 4rem 0;
+                border-radius: 12px;
+            }
+            .values-card {
+                background: white;
+                padding: 2rem;
+                border-radius: 12px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                height: 100%;
+                transition: transform 0.3s ease;
+            }
+            .values-card:hover {
+                transform: translateY(-5px);
+            }
+            .values-card i {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .values-card h4 {
+                color: #333;
+                margin-bottom: 1rem;
+            }
+            .values-card p {
+                color: #666;
             }
         </style>
     </head>
@@ -79,48 +125,56 @@
         <main>
             <div class="container px-4 px-lg-5">
                 <div class="about-section">
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-lg-6">
-                            <h1>About RonCom</h1>
-                            <p>RonCom is a leading provider of comprehensive IT solutions in Uganda. Since our establishment, we have been dedicated to delivering innovative technology solutions that help businesses and individuals thrive in the digital age.</p>
-                            <p>Our team of experienced professionals is committed to excellence in every project we undertake, from system installations to software development and IT support services.</p>
+                            <div class="about-text">
+                                <h1>About RonCom</h1>
+                                <p class="lead mb-4">RonCom is a leading provider of comprehensive IT solutions in Uganda. Since our establishment, we have been dedicated to delivering innovative technology solutions that help businesses and individuals thrive in the digital age.</p>
+                                <p>Our team of experienced professionals is committed to excellence in every project we undertake, from system installations to software development and IT support services.</p>
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <img src="assets/images/servers2.jpg" alt="RonCom Office" class="about-image">
+                            <img src="assets/images/installations2.jpg" alt="RonCom Office" class="about-image">
                         </div>
                     </div>
 
-                    <div class="row mt-5">
-                        <div class="col-12">
-                            <h2 class="text-center mb-4">Our Mission</h2>
-                            <p class="text-center">To provide innovative and reliable IT solutions that empower businesses and individuals to achieve their goals through technology.</p>
+                    <div class="mission-section">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 text-center">
+                                    <h2 class="mb-4">Our Mission</h2>
+                                    <p class="lead">To provide innovative and reliable IT solutions that empower businesses and individuals to achieve their goals through technology.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="row mt-5">
-                        <div class="col-12">
-                            <h2 class="text-center mb-4">Our Values</h2>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="text-center">
-                                        <i class="bi bi-star-fill text-primary mb-3" style="font-size: 2rem;"></i>
-                                        <h4>Excellence</h4>
-                                        <p>We strive for excellence in every project we undertake.</p>
-                                    </div>
+                    <div class="values-section">
+                        <div class="row">
+                            <div class="col-12 text-center mb-5">
+                                <h2>Our Values</h2>
+                            </div>
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="values-card text-center">
+                                    <i class="bi bi-star-fill text-primary"></i>
+                                    <h4>Excellence</h4>
+                                    <p>We strive for excellence in every project we undertake.</p>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="text-center">
-                                        <i class="bi bi-people-fill text-primary mb-3" style="font-size: 2rem;"></i>
-                                        <h4>Customer Focus</h4>
-                                        <p>Our clients' success is our primary focus.</p>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="values-card text-center">
+                                    <i class="bi bi-people-fill text-primary"></i>
+                                    <h4>Customer Focus</h4>
+                                    <p>Our clients' success is our primary focus.</p>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="text-center">
-                                        <i class="bi bi-lightning-fill text-primary mb-3" style="font-size: 2rem;"></i>
-                                        <h4>Innovation</h4>
-                                        <p>We embrace new technologies and innovative solutions.</p>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="values-card text-center">
+                                    <i class="bi bi-lightning-fill text-primary"></i>
+                                    <h4>Innovation</h4>
+                                    <p>We embrace new technologies and innovative solutions.</p>
                                 </div>
                             </div>
                         </div>

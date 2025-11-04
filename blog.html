@@ -25,25 +25,111 @@
         <link href="css/styles.css" rel="stylesheet" />
         
         <style>
+            body {
+                background: url('assets/images/IT2.jpeg') no-repeat center center fixed;
+                background-size: cover;
+                position: relative;
+            }
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(248, 249, 250, 0.95);
+                z-index: -1;
+            }
             .blog-section {
-                padding: 50px 0;
+                padding: 80px 0;
+            }
+            .blog-posts-container {
+                max-width: 1200px;
+                margin: 0 auto;
             }
             .blog-post {
                 margin-bottom: 40px;
-                transition: transform 0.3s ease;
+                transition: all 0.3s ease;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
             }
             .blog-post:hover {
                 transform: translateY(-5px);
+                box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
             }
             .blog-image {
                 width: 100%;
-                height: 200px;
+                height: 240px;
                 object-fit: cover;
-                border-radius: 8px;
+            }
+            .blog-content {
+                padding: 1.8rem;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
             }
             .post-meta {
                 color: #6c757d;
                 font-size: 0.9rem;
+                margin-bottom: 1.2rem;
+            }
+            .blog-post h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1.2rem;
+                color: #333;
+                line-height: 1.4;
+            }
+            .blog-post p {
+                color: #666;
+                margin-bottom: 1.5rem;
+                flex-grow: 1;
+            }
+            .btn-primary {
+                padding: 0.7rem 2rem;
+                border-radius: 25px;
+                align-self: flex-start;
+                transition: all 0.3s ease;
+            }
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+            }
+            .page-title {
+                position: relative;
+                margin-bottom: 4rem;
+                color: #333;
+                font-weight: 600;
+            }
+            .page-title:after {
+                content: '';
+                display: block;
+                width: 80px;
+                height: 4px;
+                background: #0d6efd;
+                margin: 20px auto 0;
+            }
+            .row.blog-row {
+                margin: 0 -20px;
+            }
+            .blog-col {
+                padding: 0 20px;
+                margin-bottom: 40px;
+                display: flex;
+            }
+            @media (max-width: 991.98px) {
+                .blog-col {
+                    width: 50%;
+                }
+            }
+            @media (max-width: 767.98px) {
+                .blog-col {
+                    width: 100%;
+                }
             }
         </style>
     </head>
@@ -80,48 +166,55 @@
         <main>
             <div class="container px-4 px-lg-5">
                 <div class="blog-section">
-                    <h1 class="text-center mb-5">Latest Posts</h1>
+                    <h1 class="text-center page-title">Latest Posts</h1>
                     
-                    <div class="row">
-                        <!-- Sample blog posts - Replace with actual content -->
-                        <div class="col-md-6 col-lg-4">
-                            <article class="blog-post">
-                                <img src="assets/images/networking2.jpg" alt="Network Security" class="blog-image mb-3">
-                                <div class="post-meta mb-2">
-                                    <i class="bi bi-calendar3"></i> November 4, 2025
-                                    <i class="bi bi-person ms-3"></i> Admin
-                                </div>
-                                <h3>Essential Network Security Tips for Small Businesses</h3>
-                                <p>Learn about the fundamental network security practices that every small business should implement...</p>
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </article>
-                        </div>
+                    <div class="blog-posts-container">
+                        <div class="row blog-row">
+                            <!-- Sample blog posts - Replace with actual content -->
+                            <div class="col-md-6 col-lg-4 blog-col">
+                                <article class="blog-post">
+                                    <img src="assets/images/networking2.jpg" alt="Network Security" class="blog-image">
+                                    <div class="blog-content">
+                                        <div class="post-meta">
+                                            <i class="bi bi-calendar3"></i> November 4, 2025
+                                            <i class="bi bi-person ms-3"></i> Admin
+                                        </div>
+                                        <h3>Essential Network Security Tips for Small Businesses</h3>
+                                        <p>Learn about the fundamental network security practices that every small business should implement...</p>
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                    </div>
+                                </article>
+                            </div>
 
-                        <div class="col-md-6 col-lg-4">
-                            <article class="blog-post">
-                                <img src="assets/images/cctv-camera.jpg" alt="CCTV Systems" class="blog-image mb-3">
-                                <div class="post-meta mb-2">
-                                    <i class="bi bi-calendar3"></i> November 3, 2025
-                                    <i class="bi bi-person ms-3"></i> Admin
-                                </div>
-                                <h3>Choosing the Right CCTV System for Your Property</h3>
-                                <p>A comprehensive guide to selecting and installing the perfect CCTV system for your needs...</p>
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </article>
-                        </div>
+                            <div class="col-md-6 col-lg-4 blog-col">
+                                <article class="blog-post">
+                                    <img src="assets/images/cctv-camera.jpg" alt="CCTV Systems" class="blog-image">
+                                    <div class="blog-content">
+                                        <div class="post-meta">
+                                            <i class="bi bi-calendar3"></i> November 3, 2025
+                                            <i class="bi bi-person ms-3"></i> Admin
+                                        </div>
+                                        <h3>Choosing the Right CCTV System for Your Property</h3>
+                                        <p>A comprehensive guide to selecting and installing the perfect CCTV system for your needs...</p>
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                    </div>
+                                </article>
+                            </div>
 
-                        <div class="col-md-6 col-lg-4">
-                            <article class="blog-post">
-                                <img src="assets/IT.png" alt="IT Solutions" class="blog-image mb-3">
-                                <div class="post-meta mb-2">
-                                    <i class="bi bi-calendar3"></i> November 2, 2025
-                                    <i class="bi bi-person ms-3"></i> Admin
-                                </div>
-                                <h3>The Future of IT Solutions in Uganda</h3>
-                                <p>Exploring emerging trends and technologies shaping the future of IT services in Uganda...</p>
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </article>
-                        </div>
+                            <div class="col-md-6 col-lg-4 blog-col">
+                                <article class="blog-post">
+                                    <img src="assets/IT.png" alt="IT Solutions" class="blog-image">
+                                    <div class="blog-content">
+                                        <div class="post-meta">
+                                            <i class="bi bi-calendar3"></i> November 2, 2025
+                                            <i class="bi bi-person ms-3"></i> Admin
+                                        </div>
+                                        <h3>The Future of IT Solutions in Uganda</h3>
+                                        <p>Exploring emerging trends and technologies shaping the future of IT services in Uganda...</p>
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                    </div>
+                                </article>
+                            </div>
                     </div>
                 </div>
             </div>

@@ -25,21 +25,86 @@
         <link href="css/styles.css" rel="stylesheet" />
         
         <style>
+            body {
+                background-color: #f8f9fa;
+            }
             .contact-section {
-                padding: 50px 0;
+                padding: 80px 0;
+            }
+            .section-title {
+                text-align: center;
+                margin-bottom: 4rem;
+                position: relative;
+            }
+            .section-title:after {
+                content: '';
+                display: block;
+                width: 60px;
+                height: 4px;
+                background: #0d6efd;
+                margin: 15px auto 0;
             }
             .contact-info {
+                background: white;
+                padding: 2rem;
+                border-radius: 12px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
                 margin-bottom: 30px;
+                transition: transform 0.3s ease;
+            }
+            .contact-info:hover {
+                transform: translateY(-5px);
             }
             .contact-info i {
-                font-size: 2rem;
-                margin-bottom: 15px;
+                font-size: 2.5rem;
+                margin-bottom: 20px;
                 color: #0d6efd;
             }
+            .contact-info h3 {
+                color: #333;
+                margin-bottom: 15px;
+            }
+            .contact-info a {
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+            .contact-info a:hover {
+                color: #0d6efd !important;
+            }
             .contact-form {
-                background: #f8f9fa;
-                padding: 30px;
+                background: white;
+                padding: 3rem;
+                border-radius: 12px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            }
+            .contact-form h3 {
+                color: #333;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+            .form-label {
+                color: #555;
+                font-weight: 500;
+            }
+            .form-control {
+                border: 2px solid #e9ecef;
+                padding: 0.8rem;
                 border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+            .form-control:focus {
+                border-color: #0d6efd;
+                box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+            }
+            .btn-primary {
+                padding: 0.8rem 2.5rem;
+                border-radius: 25px;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            .contact-form textarea.form-control {
+                min-height: 150px;
             }
         </style>
     </head>
@@ -76,9 +141,9 @@
         <main>
             <div class="container px-4 px-lg-5">
                 <div class="contact-section">
-                    <h1 class="text-center mb-5">Get in Touch</h1>
+                    <h1 class="section-title">Get in Touch</h1>
                     
-                    <div class="row">
+                    <div class="row g-4">
                         <div class="col-md-4">
                             <div class="contact-info text-center">
                                 <i class="bi bi-telephone-fill"></i>
@@ -105,23 +170,23 @@
                     <div class="row mt-5">
                         <div class="col-lg-8 mx-auto">
                             <div class="contact-form">
-                                <h3 class="text-center mb-4">Send us a Message</h3>
+                                <h3>Send us a Message</h3>
                                 <form id="contactForm">
-                                    <div class="mb-3">
+                                    <div class="mb-4">
                                         <label for="name" class="form-label">Name</label>
-                                        <input type="text" class="form-control" id="name" required>
+                                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-4">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="email" required>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-4">
                                         <label for="subject" class="form-label">Subject</label>
-                                        <input type="text" class="form-control" id="subject" required>
+                                        <input type="text" class="form-control" id="subject" placeholder="Enter subject" required>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-4">
                                         <label for="message" class="form-label">Message</label>
-                                        <textarea class="form-control" id="message" rows="5" required></textarea>
+                                        <textarea class="form-control" id="message" rows="5" placeholder="Enter your message" required></textarea>
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary">Send Message</button>
