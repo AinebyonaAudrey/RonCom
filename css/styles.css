@@ -297,13 +297,53 @@ footer {
   background-color: var(--bs-dark);
   color: white;
   padding: 3rem 0;
-  
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+}
+
+.footer-links a {
+  transition: color 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #fff !important;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-contact li {
+  transition: transform 0.2s ease;
+}
+
+.footer-contact li:hover {
+  transform: translateX(5px);
+}
+
+.social-links a {
+  transition: transform 0.2s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
 }
 
 .justify-content-between {
@@ -379,6 +419,78 @@ footer {
   line-height: 1.5;
   margin: 0;
   font-family: var(--bs-body-font-family);
+}
+
+/* Core Values Section Styles */
+/* Remove the custom margin-top since we're using Bootstrap's spacing classes */
+
+.values-heading {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.values-heading h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.values-heading h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--bs-primary);
+}
+
+.values-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 0 -15px;
+}
+
+.values-flex-item {
+  flex: 1 1 300px;
+  min-width: 280px;
+  padding: 0 15px;
+}
+
+.values-card {
+  height: 100%;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.values-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.values-card i {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.values-card h4 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.values-card p {
+  color: #666;
+  line-height: 1.6;
 }
 
 /* Responsive adjustments */
