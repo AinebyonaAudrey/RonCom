@@ -34,11 +34,19 @@
 
         <!-- Custom styles -->
         <style>
-            .service-card {
+            .service-card,
+            .mission-card,
+            .values-card,
+            .services-card,
+            .blog-card {
                 opacity: 0;
                 transform: translateY(30px);
             }
-            .service-card.fade-in {
+            .service-card.fade-in,
+            .mission-card.fade-in,
+            .values-card.fade-in,
+            .services-card.fade-in,
+            .blog-card.fade-in {
                 animation: fadeInUp 0.6s ease forwards;
             }
             @keyframes fadeInUp {
@@ -241,8 +249,8 @@
                 <section class="my-5">
                     <div class="row">
                         <!-- Mission -->
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 border-0 shadow-sm text-white" style="background-color: #0b5ed7;">
+                        <div class="col-12 mb-4">
+                            <div class="card h-100 border-0 shadow-sm mission-card" style="background-color: #0b5ed7; color: whitesmoke;">
                                 <div class="card-body">
                                     <h2 class="card-title text-center mb-4">Our Mission</h2>
                                     <p class="card-text">To provide cutting-edge networking solutions and exceptional IT services that empower businesses and individuals across Uganda with reliable, secure, and efficient connectivity, while fostering digital transformation and technological advancement in our communities.</p>
@@ -250,7 +258,7 @@
                             </div>
                         </div>
                         <!-- Core Values -->
-                        <div class="col-md-12">
+                        <div class="col-12">
                             <div class="values-section my-5">
                                 <div class="values-heading text-center mb-5">
                                     <h2 class="display-5 fw-bold">Our Values</h2>
@@ -287,8 +295,8 @@
                 <section class="mb-5">
                     <div class="row">
                         <!-- Services Card -->
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 text-black" style="background-color: burlywood;">
+                        <div class="col-12 mb-4">
+                            <div class="card h-100 text-black services-card" style="background-color: burlywood;">
                                 <div class="card-body text-center">
                                     <i class="bi bi-gear-fill display-4 mb-3"></i>
                                     <h3 class="card-title">Our Services</h3>
@@ -298,13 +306,77 @@
                             </div>
                         </div>
                         <!-- Blog Card -->
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 bg-secondary text-white">
+                        <div class="col-12 mb-4">
+                            <div class="card h-100 text-white blog-card" style="background-color: darkgray;">
                                 <div class="card-body text-center">
                                     <i class="bi bi-journal-text display-4 mb-3"></i>
                                     <h3 class="card-title">Latest Insights</h3>
                                     <p class="card-text">We regularly share valuable information about emerging technologies, network security protocols, and innovative solutions in the IT industry. Our blog features expert advice, troubleshooting guides, case studies, and detailed analyses of the latest trends in networking and security systems.</p>
                                     <a href="blog.html" class="btn btn-light">Read Our Blog</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Testimonials Section -->
+                <section class="testimonials-section my-5 py-5">
+                    <div class="testimonials-heading text-center mb-5">
+                        <h2 class="display-5 fw-bold">What Our Clients Say</h2>
+                        <p class="lead text-muted">Real feedback from businesses we've partnered with</p>
+                    </div>
+
+                    <div class="row gx-4 gx-lg-5">
+                        <!-- Testimonial 1 -->
+                        <div class="col-lg-4 mb-4">
+                            <div class="testimonial-card">
+                                <div class="stars mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text">"RonCom transformed our network infrastructure. Their professional team delivered an exceptional solution that exceeded our expectations. Highly recommended!"</p>
+                                <div class="testimonial-author">
+                                    <h5 class="author-name">John Mukwaya</h5>
+                                    <p class="author-title">CEO, Tech Solutions Ltd</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="col-lg-4 mb-4">
+                            <div class="testimonial-card">
+                                <div class="stars mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text">"Outstanding service and support! The team at RonCom installed our security system flawlessly. Their 24/7 support has been invaluable to our operations."</p>
+                                <div class="testimonial-author">
+                                    <h5 class="author-name">Sarah Nambi</h5>
+                                    <p class="author-title">Operations Manager, Kampala Hotels</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="col-lg-4 mb-4">
+                            <div class="testimonial-card">
+                                <div class="stars mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text">"Professional, reliable, and cost-effective. RonCom's solutions helped us improve our internet connectivity significantly. Great value for money!"</p>
+                                <div class="testimonial-author">
+                                    <h5 class="author-name">David Ocheng</h5>
+                                    <p class="author-title">Director, Kampala Tech Hub</p>
                                 </div>
                             </div>
                         </div>
@@ -364,7 +436,7 @@
         <!-- Scroll Animation Script -->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                const cards = document.querySelectorAll('.service-card');
+                const cards = document.querySelectorAll('.service-card, .mission-card, .values-card, .services-card, .blog-card, .testimonial-card');
                 
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
