@@ -25,24 +25,263 @@
         <link href="css/styles.css" rel="stylesheet" />
         
         <style>
+            /* Hero Section Styles */
+            .about-hero {
+                position: relative;
+                min-height: 500px;
+                background: linear-gradient(135deg, #0b5ed7 0%, #0d47a1 100%);
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .about-hero::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.3);
+                z-index: 1;
+            }
+
+            .about-hero-content {
+                position: relative;
+                z-index: 2;
+                animation: slideInDown 0.8s ease forwards;
+            }
+
+            .about-hero h1 {
+                font-size: 3.5rem;
+                font-weight: 700;
+                margin-bottom: 20px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            .about-hero-subtitle {
+                font-size: 1.3rem;
+                margin-bottom: 30px;
+                opacity: 0.95;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .about-hero-cta {
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-top: 30px;
+            }
+
+            .about-hero-cta .btn {
+                padding: 12px 30px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+
+            .about-hero-cta .btn--primary {
+                background-color: #fff;
+                color: #0b5ed7;
+                border: none;
+            }
+
+            .about-hero-cta .btn--primary:hover {
+                background-color: #f0f0f0;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .about-hero-cta .btn--outline {
+                background-color: transparent;
+                color: white;
+                border: 2px solid white;
+            }
+
+            .about-hero-cta .btn--outline:hover {
+                background-color: white;
+                color: #0b5ed7;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Stats Section Styles */
+            .stats-section {
+                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                padding: 60px 0;
+            }
+
+            .stat-card {
+                padding: 30px;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+                opacity: 0;
+                transform: translateY(30px);
+                animation: fadeInUp 0.6s ease forwards;
+            }
+
+            .stat-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            }
+
+            .stat-number {
+                font-size: 2.8rem;
+                font-weight: 700;
+                color: #0b5ed7;
+                margin-bottom: 10px;
+            }
+
+            .stat-label {
+                font-size: 1.1rem;
+                color: #6c757d;
+                margin: 0;
+                font-weight: 500;
+            }
+
+            /* About Section Styles */
             .about-section {
                 padding: 50px 0;
+                opacity: 0;
+                transform: translateY(30px);
             }
+            .about-section.fade-in {
+                animation: fadeInUp 0.6s ease forwards;
+            }
+
             .about-image {
                 max-width: 100%;
                 height: auto;
-                border-radius: 8px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .about-image:hover {
+                transform: scale(1.02);
+            }
+
+            .about-text h1 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 20px;
+                color: #0b5ed7;
+            }
+
+
+            .author-name {
+                color: #0b5ed7;
+                font-weight: 700;
+                margin-bottom: 5px;
+                font-size: 1rem;
+            }
+
+            .author-title {
+                color: #6c757d;
+                font-size: 0.9rem;
+                margin: 0;
+            }
+
+            /* Call-to-Action Section */
+            .cta-section {
+                background: linear-gradient(135deg, #0b5ed7 0%, #0d47a1 100%);
+                color: white;
+                padding: 60px 0;
+                text-align: center;
+                margin: 60px 0;
+                border-radius: 12px;
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            .cta-section.fade-in {
+                animation: fadeInUp 0.8s ease forwards;
+            }
+
+            .cta-section h2 {
+                font-size: 2.5rem;
+                font-weight: 700;
                 margin-bottom: 20px;
             }
+
+            .cta-section p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+                opacity: 0.95;
+            }
+
+            .cta-section .btn {
+                padding: 12px 35px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+
+            /* Animations */
+            @keyframes slideInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Team member styles */
             .team-member {
                 margin-bottom: 30px;
                 text-align: center;
             }
+
             .team-member img {
                 width: 200px;
                 height: 200px;
                 border-radius: 50%;
                 margin-bottom: 15px;
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .about-hero h1 {
+                    font-size: 2rem;
+                }
+
+                .about-hero-subtitle {
+                    font-size: 1rem;
+                }
+
+                .about-hero-cta {
+                    flex-direction: column;
+                }
+
+                .about-hero-cta .btn {
+                    width: 100%;
+                }
+
+                .stat-card {
+                    margin-bottom: 20px;
+                }
             }
         </style>
     </head>
@@ -80,7 +319,52 @@
 
         <!-- Page Content-->
         <main>
+            <!-- Hero Section -->
+            <section class="about-hero">
+                <div class="about-hero-content">
+                    <h1>About RonCom</h1>
+                    <p class="about-hero-subtitle">Your trusted partner for innovative IT solutions and professional services in Uganda</p>
+                    <div class="about-hero-cta">
+                        <a href="contact.html" class="btn btn--primary">Get In Touch</a>
+                        <a href="#mission" class="btn btn--outline">Learn More</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section class="stats-section py-5">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                            <div class="stat-card">
+                                <h3 class="stat-number">6+</h3>
+                                <p class="stat-label">Services</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                            <div class="stat-card">
+                                <h3 class="stat-number">100+</h3>
+                                <p class="stat-label">Happy Clients</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                            <div class="stat-card">
+                                <h3 class="stat-number">5+</h3>
+                                <p class="stat-label">Years Experience</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="stat-card">
+                                <h3 class="stat-number">24/7</h3>
+                                <p class="stat-label">Support Available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <div class="container px-4 px-lg-5">
+                <!-- About Section -->
                 <div class="about-section">
                     <div class="row align-items-center">
                         <div class="col-lg-6">
@@ -95,48 +379,126 @@
                         </div>
                     </div>
 
-                    <div class="mission-section">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 text-center">
-                                    <h2 class="mb-4">Our Mission</h2>
-                                    <p class="lead">To provide innovative and reliable IT solutions that empower businesses and individuals to achieve their goals through technology.</p>
+                    
+
+                <!-- Mission and Core Values -->
+                <section class="my-5">
+                    <div class="row">
+                        <!-- Mission -->
+                        <div class="col-12 mb-4">
+                            <div class="card h-100 border-0 shadow-sm mission-card" style="background-color: #0b5ed7; color: whitesmoke;">
+                                <div class="card-body">
+                                    <h2 class="card-title text-center mb-4">Our Mission</h2>
+                                    <p class="card-text">To provide cutting-edge networking solutions and exceptional IT services that empower businesses and individuals across Uganda with reliable, secure, and efficient connectivity, while fostering digital transformation and technological advancement in our communities.</p>
                                 </div>
                             </div>
                         </div>
+                        <!-- Core Values -->
+                        <div class="col-12">
+                            <div class="values-section my-5">
+                                <div class="values-heading text-center mb-5">
+                                    <h2 class="display-5 fw-bold">Our Values</h2>
+                                </div>
+                                <div class="values-container">
+                                    <div class="values-flex-item">
+                                        <div class="values-card text-center p-4">
+                                            <i class="bi bi-star-fill text-primary display-4 mb-3"></i>
+                                            <h4 class="mb-3">Excellence</h4>
+                                            <p class="mb-0">We strive for excellence in every project we undertake.</p>
+                                        </div>
+                                    </div>
+                                    <div class="values-flex-item">
+                                        <div class="values-card text-center p-4">
+                                            <i class="bi bi-people-fill text-primary display-4 mb-3"></i>
+                                            <h4 class="mb-3">Customer Focus</h4>
+                                            <p class="mb-0">Our clients' success is our primary focus.</p>
+                                        </div>
+                                    </div>
+                                    <div class="values-flex-item">
+                                        <div class="values-card text-center p-4">
+                                            <i class="bi bi-lightning-fill text-primary display-4 mb-3"></i>
+                                            <h4 class="mb-3">Innovation</h4>
+                                            <p class="mb-0">We embrace new technologies and innovative solutions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
+                <!-- Testimonials Section -->
+                <section class="testimonials-section my-5 py-5">
+                    <div class="testimonials-heading text-center mb-5">
+                        <h2 class="display-5 fw-bold">What Our Clients Say</h2>
+                        <p class="lead text-muted">Real feedback from businesses we've partnered with</p>
                     </div>
 
-                    <div class="values-section">
-                        <div class="row">
-                            <div class="col-12 text-center mb-5">
-                                <h2>Our Values</h2>
+                    <div class="row gx-4 gx-lg-5">
+                        <!-- Testimonial 1 -->
+                        <div class="col-lg-4 mb-4">
+                            <div class="testimonial-card">
+                                <div class="stars mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text">"RonCom transformed our network infrastructure. Their professional team delivered an exceptional solution that exceeded our expectations. Highly recommended!"</p>
+                                <div class="testimonial-author">
+                                    <h5 class="author-name">John Mukwaya</h5>
+                                    <p class="author-title">CEO, Tech Solutions Ltd</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <div class="values-card text-center">
-                                    <i class="bi bi-star-fill text-primary"></i>
-                                    <h4>Excellence</h4>
-                                    <p>We strive for excellence in every project we undertake.</p>
+
+                        <!-- Testimonial 2 -->
+                        <div class="col-lg-4 mb-4">
+                            <div class="testimonial-card">
+                                <div class="stars mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text">"Outstanding service and support! The team at RonCom installed our security system flawlessly. Their 24/7 support has been invaluable to our operations."</p>
+                                <div class="testimonial-author">
+                                    <h5 class="author-name">Sarah Nambi</h5>
+                                    <p class="author-title">Operations Manager, Kampala Hotels</p>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="values-card text-center">
-                                    <i class="bi bi-people-fill text-primary"></i>
-                                    <h4>Customer Focus</h4>
-                                    <p>Our clients' success is our primary focus.</p>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="col-lg-4 mb-4">
+                            <div class="testimonial-card">
+                                <div class="stars mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="values-card text-center">
-                                    <i class="bi bi-lightning-fill text-primary"></i>
-                                    <h4>Innovation</h4>
-                                    <p>We embrace new technologies and innovative solutions.</p>
+                                <p class="testimonial-text">"Professional, reliable, and cost-effective. RonCom's solutions helped us improve our internet connectivity significantly. Great value for money!"</p>
+                                <div class="testimonial-author">
+                                    <h5 class="author-name">David Ocheng</h5>
+                                    <p class="author-title">Director, Kampala Tech Hub</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
+
+                <!-- Call-to-Action Section -->
+                <section class="cta-section">
+                    <h2>Ready to Transform Your Business?</h2>
+                    <p>Get in touch with our team to discuss how we can help you achieve your IT goals</p>
+                    <a href="contact.html" class="btn btn-light">Contact Us Today</a>
+                </section>
             </div>
         </main>
 
@@ -185,5 +547,38 @@
         
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+
+        <!-- Scroll Animation Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const cards = document.querySelectorAll('.stat-card, .mission-card, .values-card, .testimonial-card');
+                const aboutSection = document.querySelector('.about-section');
+                const ctaSection = document.querySelector('.cta-section');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('fade-in');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                cards.forEach(card => {
+                    observer.observe(card);
+                });
+
+                if (aboutSection) {
+                    observer.observe(aboutSection);
+                }
+
+                if (ctaSection) {
+                    observer.observe(ctaSection);
+                }
+            });
+        </script>
     </body>
 </html>
