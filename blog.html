@@ -28,60 +28,514 @@
             body {
                 background-color: #f8f9fa;
             }
-            .blog-section {
-                padding: 80px 0;
+
+            /* ===== KEYFRAME ANIMATIONS ===== */
+            @keyframes slideInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
-            .blog-post {
-                margin-bottom: 40px;
+
+            @keyframes slideInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes scaleIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.95);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes pulse {
+                0%, 100% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0.7;
+                }
+            }
+
+            @keyframes shimmer {
+                0% {
+                    background-position: -1000px 0;
+                }
+                100% {
+                    background-position: 1000px 0;
+                }
+            }
+
+            @keyframes float {
+                0%, 100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+
+            @keyframes bounceIn {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.3);
+                }
+                50% {
+                    opacity: 1;
+                    transform: scale(1.05);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+
+            /* ===== HERO SECTION ===== */
+            .blog-hero {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 80px 0;
+                text-align: center;
+                margin-bottom: 50px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+                animation: slideInDown 0.8s ease-out;
+            }
+
+            .blog-hero h1 {
+                font-size: 3rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                letter-spacing: -0.5px;
+                animation: slideInDown 0.8s ease-out 0.1s both;
+            }
+
+            .blog-hero p {
+                font-size: 1.2rem;
+                opacity: 0.95;
+                margin: 0;
+                font-weight: 300;
+                animation: slideInDown 0.8s ease-out 0.2s both;
+            }
+
+            @media (max-width: 768px) {
+                .blog-hero h1 {
+                    font-size: 2rem;
+                }
+                .blog-hero p {
+                    font-size: 1rem;
+                }
+            }
+
+            /* ===== SEARCH BAR ===== */
+            .search-bar-container {
+                margin: 40px 0;
+                position: relative;
+                animation: slideInUp 0.8s ease-out 0.3s both;
+            }
+
+            .search-bar {
+                position: relative;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+
+            .search-bar input {
+                width: 100%;
+                padding: 14px 20px 14px 45px;
+                border: 2px solid #e0e0e0;
+                border-radius: 30px;
+                font-size: 1rem;
                 transition: all 0.3s ease;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                animation: scaleIn 0.6s ease-out 0.4s both;
+            }
+
+            .search-bar input:focus {
+                border-color: #667eea;
+                outline: none;
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+                animation: pulse 0.5s ease-in-out;
+            }
+
+            .search-bar .search-icon {
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #999;
+                animation: fadeIn 0.6s ease-out 0.5s both;
+            }
+
+            .no-results {
+                text-align: center;
+                padding: 40px 20px;
+                color: #999;
+                animation: slideInUp 0.6s ease-out;
+            }
+
+            /* ===== CATEGORY FILTER ===== */
+            .category-filter {
+                margin: 35px 0;
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                animation: slideInUp 0.8s ease-out 0.2s both;
+            }
+
+            .filter-label {
+                font-weight: 600;
+                color: #333;
+                font-size: 0.95rem;
+                margin-right: 10px;
+                animation: fadeIn 0.6s ease-out 0.3s both;
+            }
+
+            .category-btn {
+                padding: 10px 22px;
+                border: 2px solid #e0e0e0;
+                background: white;
+                color: #333;
+                border-radius: 25px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-weight: 500;
+                font-size: 0.95rem;
+                animation: scaleIn 0.6s ease-out calc(0.4s + var(--btn-index) * 0.1s);
+            }
+
+            .category-btn:hover {
+                border-color: #667eea;
+                color: #667eea;
+                transform: translateY(-2px);
+                animation: float 0.6s ease-in-out infinite;
+            }
+
+            .category-btn.active {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border-color: transparent;
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+                animation: bounceIn 0.5s ease-out;
+            }
+
+            /* ===== CATEGORY BADGE ===== */
+            .category-badge {
+                display: inline-block;
+                padding: 6px 14px;
+                border-radius: 20px;
+                font-size: 0.75rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .badge-security {
+                background: #e7f3ff;
+                color: #0066cc;
+            }
+
+            .badge-cctv {
+                background: #fff3e7;
+                color: #ff6600;
+            }
+
+            .badge-it {
+                background: #e7f5ff;
+                color: #1971c2;
+            }
+
+            .badge-networking {
+                background: #f0e7ff;
+                color: #6600cc;
+            }
+
+            /* ===== BLOG SECTION ===== */
+            .blog-section {
+                padding: 40px 0;
+            }
+
+            .blog-post-item {
+                margin-bottom: 60px;
+                animation: slideInUp 0.8s ease-out;
+            }
+
+            .blog-post-item:nth-child(1) { animation-delay: 0s; }
+            .blog-post-item:nth-child(2) { animation-delay: 0.1s; }
+            .blog-post-item:nth-child(3) { animation-delay: 0.2s; }
+            .blog-post-item:nth-child(4) { animation-delay: 0.3s; }
+            .blog-post-item:nth-child(5) { animation-delay: 0.4s; }
+            .blog-post-item:nth-child(6) { animation-delay: 0.5s; }
+
+            .blog-post {
+                margin-bottom: 20px;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 background: white;
                 border-radius: 12px;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 overflow: hidden;
                 height: 100%;
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                animation: scaleIn 0.6s ease-out;
             }
+
             .blog-post:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+                transform: translateY(-8px);
+                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
             }
+
             .blog-image {
                 width: 100%;
                 height: 240px;
                 object-fit: cover;
+                transition: transform 0.3s ease;
+                animation: fadeIn 0.6s ease-out;
             }
+
+            .blog-post:hover .blog-image {
+                transform: scale(1.05);
+            }
+
             .blog-content {
-                padding: 1.5rem;
+                padding: 1.8rem;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                animation: slideInUp 0.6s ease-out 0.1s both;
             }
+
             .post-meta {
                 color: #6c757d;
                 font-size: 0.9rem;
-                margin-bottom: 1rem;
+                margin-bottom: 1.2rem;
+                display: flex;
+                gap: 18px;
+                align-items: center;
+                flex-wrap: wrap;
+                animation: fadeIn 0.6s ease-out 0.2s both;
             }
+
+            .meta-item {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                transition: all 0.3s ease;
+            }
+
+            .meta-item:hover {
+                transform: translateX(3px);
+            }
+
+            .read-time {
+                color: #667eea;
+                font-weight: 600;
+                background: rgba(102, 126, 234, 0.1);
+                padding: 3px 10px;
+                border-radius: 12px;
+                font-size: 0.85rem;
+                animation: bounceIn 0.6s ease-out 0.3s both;
+            }
+
             .blog-post h3 {
-                font-size: 1.5rem;
+                font-size: 1.45rem;
                 margin-bottom: 1rem;
                 color: #333;
-                line-height: 1.4;
+                line-height: 1.5;
+                font-weight: 700;
+                transition: color 0.3s ease;
+                animation: slideInUp 0.6s ease-out 0.2s both;
             }
-            .blog-post p {
+
+            .blog-post:hover h3 {
+                color: #667eea;
+            }
+
+            .blog-excerpt {
                 color: #666;
                 margin-bottom: 1.5rem;
+                flex-grow: 1;
+                line-height: 1.7;
+                font-size: 0.95rem;
+                display: -webkit-box;
+                line-clamp: 3;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                animation: slideInUp 0.6s ease-out 0.3s both;
             }
+
+            .post-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: auto;
+                padding-top: 1.2rem;
+                border-top: 1px solid #f0f0f0;
+                animation: slideInUp 0.6s ease-out 0.4s both;
+            }
+
             .btn-primary {
-                padding: 0.5rem 1.5rem;
+                padding: 0.6rem 1.8rem;
                 border-radius: 25px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border: none;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                color: white !important;
+                text-decoration: none !important;
+                display: inline-block;
+                animation: scaleIn 0.6s ease-out 0.5s both;
             }
+
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+                animation: pulse 0.5s ease-in-out;
+            }
+
+            /* ===== SOCIAL SHARE ===== */
+            .social-share {
+                display: flex;
+                gap: 10px;
+                animation: slideInUp 0.6s ease-out 0.5s both;
+            }
+
+            .social-share a {
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                background: #f5f5f5;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #666;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                font-size: 1rem;
+                animation: scaleIn 0.4s ease-out;
+            }
+
+            .social-share a:hover {
+                background: #667eea;
+                color: white;
+                transform: translateY(-3px);
+                animation: pulse 0.5s ease-in-out;
+            }
+
+            /* ===== PAGINATION ===== */
+            .pagination-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                margin: 50px 0;
+                padding: 20px 0;
+                animation: slideInUp 0.8s ease-out 0.5s both;
+            }
+
+            .pagination-btn {
+                padding: 10px 14px;
+                border: 2px solid #e0e0e0;
+                background: white;
+                color: #333;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-weight: 500;
+                font-size: 0.95rem;
+                min-width: 44px;
+                animation: scaleIn 0.6s ease-out;
+            }
+
+            .pagination-btn:hover:not(:disabled) {
+                border-color: #667eea;
+                color: #667eea;
+                transform: translateY(-2px);
+                animation: float 0.6s ease-in-out infinite;
+            }
+
+            .pagination-btn.active {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border-color: transparent;
+                animation: bounceIn 0.5s ease-out;
+            }
+
+            .pagination-btn:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+            .pagination-info {
+                color: #666;
+                font-size: 0.95rem;
+                margin: 0 15px;
+            }
+
+            /* ===== PAGE TITLE ===== */
             .page-title {
                 position: relative;
-                margin-bottom: 3rem;
+                margin-bottom: 2rem;
             }
+
             .page-title:after {
                 content: '';
                 display: block;
                 width: 60px;
                 height: 4px;
-                background: #0d6efd;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
                 margin: 15px auto 0;
+            }
+
+            /* ===== RESPONSIVE ===== */
+            @media (max-width: 768px) {
+                .post-footer {
+                    flex-direction: column;
+                    gap: 15px;
+                    align-items: flex-start;
+                }
+
+                .social-share {
+                    width: 100%;
+                }
+
+                .category-filter {
+                    margin: 25px 0;
+                }
+
+                .filter-label {
+                    width: 100%;
+                    text-align: center;
+                    margin-right: 0;
+                    margin-bottom: 10px;
+                }
             }
         </style>
     </head>
@@ -119,56 +573,352 @@
 
         <!-- Page Content-->
         <main>
+            <!-- Hero Section -->
+            <div class="blog-hero">
+                <div class="container">
+                    <h1>RonCom Blog</h1>
+                    <p>Technology Insights, Tips & Industry Trends to Keep You Informed</p>
+                </div>
+            </div>
+
             <div class="container px-4 px-lg-5">
+                <!-- Search Bar Container -->
+                <div class="search-bar-container">
+                    <div class="search-bar">
+                        <i class="bi bi-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Search blog posts..." />
+                    </div>
+                </div>
+
+                <!-- Category Filter -->
+                <div class="category-filter">
+                    <span class="filter-label">Filter by Category:</span>
+                    <button class="category-btn active" data-filter="all">All Posts</button>
+                    <button class="category-btn" data-filter="security">Security</button>
+                    <button class="category-btn" data-filter="cctv">CCTV</button>
+                    <button class="category-btn" data-filter="it">IT Solutions</button>
+                </div>
+
                 <div class="blog-section">
-                    <h1 class="text-center page-title">Latest Posts</h1>
-                    
-                    <div class="row g-4">
-                        <!-- Sample blog posts - Replace with actual content -->
-                        <div class="col-md-6 col-lg-4">
+                    <div class="row g-4" id="blogPostsContainer">
+                        <!-- Blog Post 1 - Network Security -->
+                        <div class="col-md-6 col-lg-4 blog-post-item" data-category="security" data-title="Essential Network Security Tips for Small Businesses" data-search="network security tips businesses firewall encryption">
                             <article class="blog-post">
                                 <img src="assets/images/networking2.jpg" alt="Network Security" class="blog-image">
                                 <div class="blog-content">
+                                    <span class="category-badge badge-security">Security</span>
                                     <div class="post-meta">
-                                        <i class="bi bi-calendar3"></i> November 4, 2025
-                                        <i class="bi bi-person ms-3"></i> Admin
+                                        <span class="meta-item"><i class="bi bi-calendar3"></i> November 4, 2025</span>
+                                        <span class="meta-item"><i class="bi bi-person"></i> Admin</span>
+                                        <span class="meta-item read-time"><i class="bi bi-clock"></i> 5 min read</span>
                                     </div>
                                     <h3>Essential Network Security Tips for Small Businesses</h3>
-                                    <p>Learn about the fundamental network security practices that every small business should implement...</p>
-                                    <a href="#" class="btn btn-primary">Read More</a>
+                                    <p class="blog-excerpt">Learn about the fundamental network security practices that every small business should implement to protect their valuable data and infrastructure. Discover best practices for firewalls, encryption, and access control.</p>
+                                    <div class="post-footer">
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="social-share">
+                                            <a href="#" title="Share on Facebook" onclick="sharePost(event, 'facebook')"><i class="bi bi-facebook"></i></a>
+                                            <a href="#" title="Share on Twitter" onclick="sharePost(event, 'twitter')"><i class="bi bi-twitter"></i></a>
+                                            <a href="#" title="Share on LinkedIn" onclick="sharePost(event, 'linkedin')"><i class="bi bi-linkedin"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </article>
                         </div>
 
-                        <div class="col-md-6 col-lg-4">
+                        <!-- Blog Post 2 - CCTV Systems -->
+                        <div class="col-md-6 col-lg-4 blog-post-item" data-category="cctv" data-title="Choosing the Right CCTV System for Your Property" data-search="CCTV surveillance cameras system installation">
                             <article class="blog-post">
                                 <img src="assets/images/cctv-camera.jpg" alt="CCTV Systems" class="blog-image">
                                 <div class="blog-content">
+                                    <span class="category-badge badge-cctv">CCTV</span>
                                     <div class="post-meta">
-                                        <i class="bi bi-calendar3"></i> November 3, 2025
-                                        <i class="bi bi-person ms-3"></i> Admin
+                                        <span class="meta-item"><i class="bi bi-calendar3"></i> November 3, 2025</span>
+                                        <span class="meta-item"><i class="bi bi-person"></i> Admin</span>
+                                        <span class="meta-item read-time"><i class="bi bi-clock"></i> 7 min read</span>
                                     </div>
                                     <h3>Choosing the Right CCTV System for Your Property</h3>
-                                    <p>A comprehensive guide to selecting and installing the perfect CCTV system for your needs...</p>
-                                    <a href="#" class="btn btn-primary">Read More</a>
+                                    <p class="blog-excerpt">A comprehensive guide to selecting and installing the perfect CCTV system for your business or home. Learn about different camera types, resolution standards, and what factors matter most for your security needs.</p>
+                                    <div class="post-footer">
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="social-share">
+                                            <a href="#" title="Share on Facebook" onclick="sharePost(event, 'facebook')"><i class="bi bi-facebook"></i></a>
+                                            <a href="#" title="Share on Twitter" onclick="sharePost(event, 'twitter')"><i class="bi bi-twitter"></i></a>
+                                            <a href="#" title="Share on LinkedIn" onclick="sharePost(event, 'linkedin')"><i class="bi bi-linkedin"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </article>
                         </div>
 
-                        <div class="col-md-6 col-lg-4">
+                        <!-- Blog Post 3 - IT Solutions -->
+                        <div class="col-md-6 col-lg-4 blog-post-item" data-category="it" data-title="The Future of IT Solutions in Uganda" data-search="IT solutions Uganda technology trends digital transformation">
                             <article class="blog-post">
                                 <img src="assets/IT.png" alt="IT Solutions" class="blog-image">
                                 <div class="blog-content">
+                                    <span class="category-badge badge-it">IT Trends</span>
                                     <div class="post-meta">
-                                        <i class="bi bi-calendar3"></i> November 2, 2025
-                                        <i class="bi bi-person ms-3"></i> Admin
+                                        <span class="meta-item"><i class="bi bi-calendar3"></i> November 2, 2025</span>
+                                        <span class="meta-item"><i class="bi bi-person"></i> Admin</span>
+                                        <span class="meta-item read-time"><i class="bi bi-clock"></i> 6 min read</span>
                                     </div>
                                     <h3>The Future of IT Solutions in Uganda</h3>
-                                    <p>Exploring emerging trends and technologies shaping the future of IT services in Uganda...</p>
-                                    <a href="#" class="btn btn-primary">Read More</a>
+                                    <p class="blog-excerpt">Exploring emerging trends and technologies shaping the future of IT services in Uganda and across East Africa. From cloud computing to artificial intelligence, discover what's next in the tech landscape.</p>
+                                    <div class="post-footer">
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="social-share">
+                                            <a href="#" title="Share on Facebook" onclick="sharePost(event, 'facebook')"><i class="bi bi-facebook"></i></a>
+                                            <a href="#" title="Share on Twitter" onclick="sharePost(event, 'twitter')"><i class="bi bi-twitter"></i></a>
+                                            <a href="#" title="Share on LinkedIn" onclick="sharePost(event, 'linkedin')"><i class="bi bi-linkedin"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </article>
                         </div>
+
+                        <!-- Blog Post 4 - Cloud Security -->
+                        <div class="col-md-6 col-lg-4 blog-post-item" data-category="security" data-title="Cloud Security Best Practices" data-search="cloud security data protection infrastructure">
+                            <article class="blog-post">
+                                <img src="assets/images/networking2.jpg" alt="Cloud Security" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="category-badge badge-security">Security</span>
+                                    <div class="post-meta">
+                                        <span class="meta-item"><i class="bi bi-calendar3"></i> November 1, 2025</span>
+                                        <span class="meta-item"><i class="bi bi-person"></i> Admin</span>
+                                        <span class="meta-item read-time"><i class="bi bi-clock"></i> 8 min read</span>
+                                    </div>
+                                    <h3>Cloud Security Best Practices</h3>
+                                    <p class="blog-excerpt">As more businesses migrate to cloud services, security becomes paramount. Learn the essential best practices for protecting your data in the cloud, including multi-factor authentication and encryption standards.</p>
+                                    <div class="post-footer">
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="social-share">
+                                            <a href="#" title="Share on Facebook" onclick="sharePost(event, 'facebook')"><i class="bi bi-facebook"></i></a>
+                                            <a href="#" title="Share on Twitter" onclick="sharePost(event, 'twitter')"><i class="bi bi-twitter"></i></a>
+                                            <a href="#" title="Share on LinkedIn" onclick="sharePost(event, 'linkedin')"><i class="bi bi-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Blog Post 5 - CCTV Maintenance -->
+                        <div class="col-md-6 col-lg-4 blog-post-item" data-category="cctv" data-title="Maintaining Your CCTV System" data-search="CCTV maintenance system upkeep service">
+                            <article class="blog-post">
+                                <img src="assets/images/cctv-camera.jpg" alt="CCTV Maintenance" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="category-badge badge-cctv">CCTV</span>
+                                    <div class="post-meta">
+                                        <span class="meta-item"><i class="bi bi-calendar3"></i> October 31, 2025</span>
+                                        <span class="meta-item"><i class="bi bi-person"></i> Admin</span>
+                                        <span class="meta-item read-time"><i class="bi bi-clock"></i> 5 min read</span>
+                                    </div>
+                                    <h3>Maintaining Your CCTV System</h3>
+                                    <p class="blog-excerpt">Regular maintenance is key to ensuring your CCTV system operates at peak performance. Discover essential maintenance tips including lens cleaning, firmware updates, and periodic inspections.</p>
+                                    <div class="post-footer">
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="social-share">
+                                            <a href="#" title="Share on Facebook" onclick="sharePost(event, 'facebook')"><i class="bi bi-facebook"></i></a>
+                                            <a href="#" title="Share on Twitter" onclick="sharePost(event, 'twitter')"><i class="bi bi-twitter"></i></a>
+                                            <a href="#" title="Share on LinkedIn" onclick="sharePost(event, 'linkedin')"><i class="bi bi-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Blog Post 6 - IT Infrastructure -->
+                        <div class="col-md-6 col-lg-4 blog-post-item" data-category="it" data-title="Building Scalable IT Infrastructure" data-search="IT infrastructure scalability growth technology">
+                            <article class="blog-post">
+                                <img src="assets/IT.png" alt="IT Infrastructure" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="category-badge badge-it">IT Solutions</span>
+                                    <div class="post-meta">
+                                        <span class="meta-item"><i class="bi bi-calendar3"></i> October 30, 2025</span>
+                                        <span class="meta-item"><i class="bi bi-person"></i> Admin</span>
+                                        <span class="meta-item read-time"><i class="bi bi-clock"></i> 7 min read</span>
+                                    </div>
+                                    <h3>Building Scalable IT Infrastructure</h3>
+                                    <p class="blog-excerpt">As your business grows, your IT infrastructure must scale accordingly. Learn strategies for designing systems that can handle increased demand, improve performance, and support future expansion seamlessly.</p>
+                                    <div class="post-footer">
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="social-share">
+                                            <a href="#" title="Share on Facebook" onclick="sharePost(event, 'facebook')"><i class="bi bi-facebook"></i></a>
+                                            <a href="#" title="Share on Twitter" onclick="sharePost(event, 'twitter')"><i class="bi bi-twitter"></i></a>
+                                            <a href="#" title="Share on LinkedIn" onclick="sharePost(event, 'linkedin')"><i class="bi bi-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Blog Post 7 - Data Privacy -->
+                        <div class="col-md-6 col-lg-4 blog-post-item" data-category="security" data-title="Understanding Data Privacy Regulations in Uganda" data-search="data privacy GDPR regulations compliance legal">
+                            <article class="blog-post">
+                                <img src="assets/images/networking2.jpg" alt="Data Privacy" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="category-badge badge-security">Security</span>
+                                    <div class="post-meta">
+                                        <span class="meta-item"><i class="bi bi-calendar3"></i> October 29, 2025</span>
+                                        <span class="meta-item"><i class="bi bi-person"></i> Admin</span>
+                                        <span class="meta-item read-time"><i class="bi bi-clock"></i> 6 min read</span>
+                                    </div>
+                                    <h3>Understanding Data Privacy Regulations in Uganda</h3>
+                                    <p class="blog-excerpt">Navigate the complex landscape of data privacy laws affecting businesses in Uganda. Learn about compliance requirements, best practices for data protection, and how to avoid legal penalties and reputational damage.</p>
+                                    <div class="post-footer">
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="social-share">
+                                            <a href="#" title="Share on Facebook" onclick="sharePost(event, 'facebook')"><i class="bi bi-facebook"></i></a>
+                                            <a href="#" title="Share on Twitter" onclick="sharePost(event, 'twitter')"><i class="bi bi-twitter"></i></a>
+                                            <a href="#" title="Share on LinkedIn" onclick="sharePost(event, 'linkedin')"><i class="bi bi-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Blog Post 8 - Advanced CCTV Features -->
+                        <div class="col-md-6 col-lg-4 blog-post-item" data-category="cctv" data-title="Advanced CCTV Features You Should Know About" data-search="CCTV advanced features AI analytics facial recognition">
+                            <article class="blog-post">
+                                <img src="assets/images/cctv-camera.jpg" alt="Advanced CCTV" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="category-badge badge-cctv">CCTV</span>
+                                    <div class="post-meta">
+                                        <span class="meta-item"><i class="bi bi-calendar3"></i> October 28, 2025</span>
+                                        <span class="meta-item"><i class="bi bi-person"></i> Admin</span>
+                                        <span class="meta-item read-time"><i class="bi bi-clock"></i> 9 min read</span>
+                                    </div>
+                                    <h3>Advanced CCTV Features You Should Know About</h3>
+                                    <p class="blog-excerpt">Modern CCTV systems come with powerful features like AI-powered analytics, facial recognition, and behavioral detection. Discover how these advanced technologies can enhance your security posture and provide actionable insights.</p>
+                                    <div class="post-footer">
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="social-share">
+                                            <a href="#" title="Share on Facebook" onclick="sharePost(event, 'facebook')"><i class="bi bi-facebook"></i></a>
+                                            <a href="#" title="Share on Twitter" onclick="sharePost(event, 'twitter')"><i class="bi bi-twitter"></i></a>
+                                            <a href="#" title="Share on LinkedIn" onclick="sharePost(event, 'linkedin')"><i class="bi bi-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Blog Post 9 - Remote Work Security -->
+                        <div class="col-md-6 col-lg-4 blog-post-item" data-category="security" data-title="Securing Your Remote Work Environment" data-search="remote work security VPN home office telecommute">
+                            <article class="blog-post">
+                                <img src="assets/images/networking2.jpg" alt="Remote Work Security" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="category-badge badge-security">Security</span>
+                                    <div class="post-meta">
+                                        <span class="meta-item"><i class="bi bi-calendar3"></i> October 27, 2025</span>
+                                        <span class="meta-item"><i class="bi bi-person"></i> Admin</span>
+                                        <span class="meta-item read-time"><i class="bi bi-clock"></i> 5 min read</span>
+                                    </div>
+                                    <h3>Securing Your Remote Work Environment</h3>
+                                    <p class="blog-excerpt">With remote work becoming standard, security is more critical than ever. Learn essential tips for securing your home office, using VPNs properly, managing passwords, and protecting sensitive company data while working remotely.</p>
+                                    <div class="post-footer">
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="social-share">
+                                            <a href="#" title="Share on Facebook" onclick="sharePost(event, 'facebook')"><i class="bi bi-facebook"></i></a>
+                                            <a href="#" title="Share on Twitter" onclick="sharePost(event, 'twitter')"><i class="bi bi-twitter"></i></a>
+                                            <a href="#" title="Share on LinkedIn" onclick="sharePost(event, 'linkedin')"><i class="bi bi-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Blog Post 10 - 5G Technology -->
+                        <div class="col-md-6 col-lg-4 blog-post-item" data-category="it" data-title="The Impact of 5G Technology on Businesses" data-search="5G technology mobile networks business impact connectivity">
+                            <article class="blog-post">
+                                <img src="assets/IT.png" alt="5G Technology" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="category-badge badge-it">IT Trends</span>
+                                    <div class="post-meta">
+                                        <span class="meta-item"><i class="bi bi-calendar3"></i> October 26, 2025</span>
+                                        <span class="meta-item"><i class="bi bi-person"></i> Admin</span>
+                                        <span class="meta-item read-time"><i class="bi bi-clock"></i> 7 min read</span>
+                                    </div>
+                                    <h3>The Impact of 5G Technology on Businesses</h3>
+                                    <p class="blog-excerpt">5G is revolutionizing business connectivity with faster speeds and lower latency. Explore how 5G technology is transforming industries, enabling new applications, and creating opportunities for innovation across various business sectors.</p>
+                                    <div class="post-footer">
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="social-share">
+                                            <a href="#" title="Share on Facebook" onclick="sharePost(event, 'facebook')"><i class="bi bi-facebook"></i></a>
+                                            <a href="#" title="Share on Twitter" onclick="sharePost(event, 'twitter')"><i class="bi bi-twitter"></i></a>
+                                            <a href="#" title="Share on LinkedIn" onclick="sharePost(event, 'linkedin')"><i class="bi bi-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Blog Post 11 - CCTV Integration -->
+                        <div class="col-md-6 col-lg-4 blog-post-item" data-category="cctv" data-title="Integrating CCTV with Your Business Systems" data-search="CCTV integration access control alarm systems smart security">
+                            <article class="blog-post">
+                                <img src="assets/images/cctv-camera.jpg" alt="CCTV Integration" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="category-badge badge-cctv">CCTV</span>
+                                    <div class="post-meta">
+                                        <span class="meta-item"><i class="bi bi-calendar3"></i> October 25, 2025</span>
+                                        <span class="meta-item"><i class="bi bi-person"></i> Admin</span>
+                                        <span class="meta-item read-time"><i class="bi bi-clock"></i> 8 min read</span>
+                                    </div>
+                                    <h3>Integrating CCTV with Your Business Systems</h3>
+                                    <p class="blog-excerpt">Learn how to integrate CCTV systems with access control, alarm systems, and other security infrastructure for comprehensive protection. Discover the benefits of unified security systems and best practices for seamless integration.</p>
+                                    <div class="post-footer">
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="social-share">
+                                            <a href="#" title="Share on Facebook" onclick="sharePost(event, 'facebook')"><i class="bi bi-facebook"></i></a>
+                                            <a href="#" title="Share on Twitter" onclick="sharePost(event, 'twitter')"><i class="bi bi-twitter"></i></a>
+                                            <a href="#" title="Share on LinkedIn" onclick="sharePost(event, 'linkedin')"><i class="bi bi-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Blog Post 12 - Cybersecurity Threats -->
+                        <div class="col-md-6 col-lg-4 blog-post-item" data-category="security" data-title="2025 Cybersecurity Threats and How to Defend Against Them" data-search="cybersecurity threats ransomware phishing malware defense">
+                            <article class="blog-post">
+                                <img src="assets/images/networking2.jpg" alt="Cybersecurity Threats" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="category-badge badge-security">Security</span>
+                                    <div class="post-meta">
+                                        <span class="meta-item"><i class="bi bi-calendar3"></i> October 24, 2025</span>
+                                        <span class="meta-item"><i class="bi bi-person"></i> Admin</span>
+                                        <span class="meta-item read-time"><i class="bi bi-clock"></i> 10 min read</span>
+                                    </div>
+                                    <h3>2025 Cybersecurity Threats and How to Defend Against Them</h3>
+                                    <p class="blog-excerpt">The cybersecurity landscape is constantly evolving with new threats emerging daily. Stay ahead of the curve by learning about current threats like ransomware, phishing attacks, and zero-day exploits, plus effective defense strategies.</p>
+                                    <div class="post-footer">
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="social-share">
+                                            <a href="#" title="Share on Facebook" onclick="sharePost(event, 'facebook')"><i class="bi bi-facebook"></i></a>
+                                            <a href="#" title="Share on Twitter" onclick="sharePost(event, 'twitter')"><i class="bi bi-twitter"></i></a>
+                                            <a href="#" title="Share on LinkedIn" onclick="sharePost(event, 'linkedin')"><i class="bi bi-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination-container">
+                        <button class="pagination-btn" id="prevBtn" onclick="previousPage()">
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+                        <span class="pagination-info">
+                            Page <span id="currentPage">1</span> of <span id="totalPages">2</span>
+                        </span>
+                        <button class="pagination-btn" id="nextBtn" onclick="nextPage()">
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- No Results Message -->
+                    <div id="noResults" class="no-results" style="display: none;">
+                        <i class="bi bi-search" style="font-size: 3rem; color: #ddd;"></i>
+                        <p style="margin-top: 1rem; font-size: 1.1rem;">No blog posts found matching your search.</p>
                     </div>
                 </div>
             </div>
@@ -219,5 +969,147 @@
         
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+
+        <script>
+            // Pagination configuration
+            const POSTS_PER_PAGE = 6;
+            let currentPage = 1;
+            let allPosts = [];
+            let filteredPosts = [];
+            let currentFilter = 'all';
+            let searchTerm = '';
+
+            // Initialize blog on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                allPosts = Array.from(document.querySelectorAll('.blog-post-item'));
+                filteredPosts = allPosts;
+                setupEventListeners();
+                displayPage(1);
+                updatePagination();
+            });
+
+            // Setup event listeners
+            function setupEventListeners() {
+                // Category filter buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        currentFilter = this.dataset.filter;
+                        currentPage = 1;
+                        filterAndSearch();
+                    });
+                });
+
+                // Search input
+                document.getElementById('searchInput').addEventListener('keyup', function() {
+                    searchTerm = this.value.toLowerCase();
+                    currentPage = 1;
+                    filterAndSearch();
+                });
+            }
+
+            // Filter and search posts
+            function filterAndSearch() {
+                filteredPosts = allPosts.filter(post => {
+                    const category = post.dataset.category;
+                    const categoryMatch = currentFilter === 'all' || category === currentFilter;
+                    
+                    const searchData = post.dataset.search.toLowerCase();
+                    const titleData = post.dataset.title.toLowerCase();
+                    const searchMatch = searchTerm === '' || 
+                                      searchData.includes(searchTerm) || 
+                                      titleData.includes(searchTerm);
+                    
+                    return categoryMatch && searchMatch;
+                });
+
+                if (filteredPosts.length === 0) {
+                    document.getElementById('noResults').style.display = 'block';
+                    document.getElementById('blogPostsContainer').style.display = 'none';
+                    document.querySelector('.pagination-container').style.display = 'none';
+                } else {
+                    document.getElementById('noResults').style.display = 'none';
+                    document.getElementById('blogPostsContainer').style.display = 'grid';
+                    document.querySelector('.pagination-container').style.display = 'flex';
+                }
+
+                displayPage(1);
+                updatePagination();
+            }
+
+            // Display posts for current page
+            function displayPage(pageNum) {
+                currentPage = pageNum;
+                
+                // Hide all posts
+                allPosts.forEach(post => post.style.display = 'none');
+                
+                // Show posts for current page
+                const startIdx = (pageNum - 1) * POSTS_PER_PAGE;
+                const endIdx = startIdx + POSTS_PER_PAGE;
+                const postsToShow = filteredPosts.slice(startIdx, endIdx);
+                
+                postsToShow.forEach(post => post.style.display = '');
+                
+                document.getElementById('currentPage').textContent = pageNum;
+                updatePaginationButtons();
+            }
+
+            // Update pagination
+            function updatePagination() {
+                const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+                document.getElementById('totalPages').textContent = totalPages;
+                updatePaginationButtons();
+            }
+
+            // Update pagination button states
+            function updatePaginationButtons() {
+                const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+                document.getElementById('prevBtn').disabled = currentPage === 1;
+                document.getElementById('nextBtn').disabled = currentPage === totalPages || totalPages === 0;
+            }
+
+            // Navigation functions
+            function previousPage() {
+                if (currentPage > 1) {
+                    displayPage(currentPage - 1);
+                }
+            }
+
+            function nextPage() {
+                const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+                if (currentPage < totalPages) {
+                    displayPage(currentPage + 1);
+                }
+            }
+
+            // Social share function
+            function sharePost(event, platform) {
+                event.preventDefault();
+                const url = window.location.href;
+                const title = document.querySelector('h1').textContent;
+                
+                let shareUrl = '';
+                switch(platform) {
+                    case 'facebook':
+                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                        break;
+                    case 'twitter':
+                        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+                        break;
+                    case 'linkedin':
+                        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+                        break;
+                }
+                
+                if (shareUrl) {
+                    window.open(shareUrl, 'share', 'width=600,height=400');
+                }
+            }
+
+            // Update year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+        </script>
     </body>
 </html>
