@@ -38,7 +38,9 @@
             .mission-card,
             .values-card,
             .services-card,
-            .blog-card {
+            .blog-card,
+            .products-cta,
+            .testimonials-heading-animate {
                 opacity: 0;
                 transform: translateY(30px);
             }
@@ -46,7 +48,9 @@
             .mission-card.fade-in,
             .values-card.fade-in,
             .services-card.fade-in,
-            .blog-card.fade-in {
+            .blog-card.fade-in,
+            .products-cta.fade-in,
+            .testimonials-heading-animate.fade-in {
                 animation: fadeInUp 0.6s ease forwards;
             }
             @keyframes fadeInUp {
@@ -63,26 +67,28 @@
 
     </head>
     <body>
-        <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Social Media Icons -->
-                    <div class="d-flex align-items-center me-3" id="nav-social-icons">
-                        <a href="https://wa.me/256704148111" target="_blank" class="text-success me-3" title="WhatsApp">
-                            <i class="bi bi-whatsapp" style="font-size: 1.5rem;"></i>
-                        </a>
-                        <a href="https://t.me/Ronn_pro" target="_blank" class="text-primary me-3" title="Telegram">
-                            <i class="bi bi-telegram" style="font-size: 1.5rem;"></i>
-                        </a>
-                        <a href="tel:+256394868144" class="text-secondary me-3" title="Phone" style="color: #A9A9A9;">
-                            <i class="bi bi-telephone" style="font-size: 1.5rem;"></i>
-                        </a>
-                    </div>
+                <!-- Social Media Icons (visible on all screens, left side on mobile) -->
+                <div class="d-flex align-items-center order-lg-1" id="nav-social-icons">
+                    <a href="https://wa.me/256704148111" target="_blank" class="text-success me-3" title="WhatsApp">
+                        <i class="bi bi-whatsapp" style="font-size: 1.5rem;"></i>
+                    </a>
+                    <a href="https://t.me/Ronn_pro" target="_blank" class="text-primary me-3" title="Telegram">
+                        <i class="bi bi-telegram" style="font-size: 1.5rem;"></i>
+                    </a>
+                    <a href="tel:+256394868144" class="text-secondary me-3" title="Phone" style="color: #A9A9A9;">
+                        <i class="bi bi-telephone" style="font-size: 1.5rem;"></i>
+                    </a>
+                </div>
 
-                    <div> <hr class="d-lg-none bg-light opacity-25 my-2" style="width: 30%; margin-left: 0;"> </div>
+                <!-- Navbar Toggler Button -->
+                <button class="navbar-toggler order-lg-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
+                <!-- Collapsible Navigation Menu -->
+                <div class="collapse navbar-collapse order-lg-2" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
@@ -158,7 +164,7 @@
             </section>
 
             <!-- Call to Action-->
-            <div class="card text-white bg-secondary my-5 py-4 text-center" id="products">
+            <div class="card text-white my-5 py-4 text-center products-cta" id="products" style="background-color: #5c6670; color: white;">
                 <div class="card-body">
                     <h2 class="text-white m-0">Our Products</h2>    
                 </div>
@@ -321,7 +327,7 @@
 
                 <!-- Testimonials Section -->
                 <section class="testimonials-section my-5 py-5">
-                    <div class="testimonials-heading text-center mb-5">
+                    <div class="testimonials-heading text-center mb-5 testimonials-heading-animate">
                         <h2 class="display-5 fw-bold">What Our Clients Say</h2>
                         <p class="lead text-muted">Real feedback from businesses we've partnered with</p>
                     </div>
@@ -436,7 +442,7 @@
         <!-- Scroll Animation Script -->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                const cards = document.querySelectorAll('.service-card, .mission-card, .values-card, .services-card, .blog-card, .testimonial-card');
+                const cards = document.querySelectorAll('.service-card, .mission-card, .values-card, .services-card, .blog-card, .testimonial-card, .products-cta, .testimonials-heading-animate');
                 
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
