@@ -73,16 +73,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 navbarToggle.setAttribute('aria-expanded', 'true');
                 body.style.overflow = 'hidden';
                 
-                // Animate menu items
+                // Animate menu items - wait for menu to slide in first
                 const navItems = navbarMenu.querySelectorAll('.nav-item');
                 navItems.forEach((item, index) => {
+                    // Reset initial state
                     item.style.opacity = '0';
                     item.style.transform = 'translateX(-20px)';
+                    item.style.transition = 'all 0.3s ease';
+                    
+                    // Start animation after menu slides in (300ms delay)
                     setTimeout(() => {
-                        item.style.transition = 'all 0.3s ease';
                         item.style.opacity = '1';
                         item.style.transform = 'translateX(0)';
-                    }, 50 * index);
+                    }, 300 + (50 * index)); // Menu transition time + stagger delay
                 });
             } else {
                 closeMenu();
