@@ -1100,6 +1100,7 @@ footer {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   border-left: 4px solid var(--bs-primary);
+  margin-bottom: 1.5rem;
 }
 
 .stat-card:hover {
@@ -1280,20 +1281,57 @@ footer {
 /* Responsive Timeline */
 @media (max-width: 768px) {
   .timeline::before {
-    left: 24px;
+    left: 42px; /* Align with center of smaller marker */
   }
 
   .timeline-item .timeline-marker {
     left: 0;
     transform: none;
+    width: 60px; /* Smaller on mobile */
+  }
+
+  .marker-circle {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem; /* Smaller icon */
   }
 
   .timeline-item .timeline-content {
-    margin-left: 120px;
+    margin-left: 90px; /* Adjust for smaller marker */
     margin-right: 0;
-    padding-left: 2rem;
-    padding-right: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
     text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline::before {
+    left: 35px;
+  }
+
+  .timeline-item .timeline-marker {
+    width: 50px;
+  }
+
+  .marker-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+
+  .timeline-item .timeline-content {
+    margin-left: 70px;
+    padding: 1.5rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .timeline-title {
+    font-size: 0.8rem;
+  }
+
+  .timeline-text {
+    font-size: 0.7rem;
   }
 }
 
