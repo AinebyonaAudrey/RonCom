@@ -304,7 +304,11 @@ p { margin-top: 0; margin-bottom: 1rem; }
   flex-grow: 1;
   align-items: center;
   order: 4;
-  width: 100%;
+  width: 50%;
+}
+
+#nav-social-icons {
+ border-style: none;
 }
 
 /* Enhanced mobile menu */
@@ -410,6 +414,7 @@ p { margin-top: 0; margin-bottom: 1rem; }
   .navbar-expand-lg .navbar-collapse {
     display: flex !important;
     flex-basis: auto;
+    order: 2;
   }
   
   .navbar-expand-lg .navbar-toggler {
@@ -421,7 +426,8 @@ p { margin-top: 0; margin-bottom: 1rem; }
   }
 
   #nav-social-icons {
-    margin-right: 1rem;
+    order: 1;
+    margin-right: auto;
   }
 }
 
